@@ -10,20 +10,6 @@
         <h6 class="m-0 font-weight-bold text-primary">Actualización de departamentos</h6>
     </a>
 
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{$error}}</li>
-                @endforeach
-                </ul>
-            </div>
-            @endif
-        </div>
-    </div>
-
     <!-- Card Content - Collapse -->
     <div class="collapse show" id="collapseCardDepartamento">
         <div class="card-body">
@@ -42,6 +28,21 @@
                 <a href="/departamentos" class="btn btn-secondary">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
+            
+            <div class="row mt-3">
+                <div class="col-12">
+                    @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                        </ul>
+                    </div>
+                    @endif
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

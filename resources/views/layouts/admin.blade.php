@@ -16,7 +16,8 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('plugins/css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+    <link href="{{asset('plugins/css/select2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('plugins/css/select2-bootstrap4.min.css')}}" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -64,7 +65,7 @@
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Sección de Empleados:</h6>
-                        <a class="collapse-item" href="">Empleados</a>
+                        <a class="collapse-item" href="/empleados">Empleados</a>
                         <a class="collapse-item" href="/cargos">Cargos</a>
                         <a class="collapse-item" href="/departamentos">Departamentos</a>
                         <a class="collapse-item" href="/nivel_academico">Nivel Académico</a>
@@ -84,7 +85,7 @@
                         <h6 class="collapse-header">Sección de Capacitaciones:</h6>
                         <a class="collapse-item" href="">Capacitaciones</a>
                         <a class="collapse-item" href="">Estados de Capacitacion</a>
-                        <a class="collapse-item" href="">Financiamientos</a>
+                        <a class="collapse-item" href="/financiamientos">Financiamientos</a>
                         <a class="collapse-item" href="">Horarios</a>
                         <a class="collapse-item" href="">Inscripciones</a>
                     </div>
@@ -280,6 +281,21 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('plugins/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('plugins/js/select2.min.js')}}"></script>
+    <script>
+        $(function () {
+            $('select').each(function () {
+                $(this).select2({
+                theme: 'bootstrap4',
+                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                placeholder: $(this).data('placeholder'),
+                allowClear: Boolean($(this).data('allow-clear')),
+                closeOnSelect: !$(this).attr('multiple'),
+                });
+            });
+        });
+    </script>
+
     <script src="{{asset('plugins/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->

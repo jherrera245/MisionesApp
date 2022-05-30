@@ -18,7 +18,7 @@ class Capacitacion extends Model
         'nombre_capacitacion',
         'fecha_inicio',
         'fecha_finalizacion',
-        'modalidad',
+        'id_modalidad_capacitacion',
         'descripcion',
         'cantidad_horas',
         'costo',

@@ -27,7 +27,7 @@ class CapacitacionRequest extends FormRequest
             'nombre'=>'required|string|max:55',
             'inicio'=>'required|date',
             'fin'=>'required|date|after_or_equal:inicio',
-            'modalidad'=>'required|string|max:45',
+            'modalidad'=>'required|integer',
             'descripcion'=>'string|max:250',
             'horas'=>'required|numeric|regex:/^[\d]{0,5}(\.[\d]{1,2})?$/',
             'costo'=>'required|numeric|regex:/^[\d]{0,10}(\.[\d]{1,2})?$/',

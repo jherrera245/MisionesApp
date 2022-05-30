@@ -36,8 +36,9 @@
                     <div class="col-lg-6 col-xs-12 mb-3">
                         <label for="modalidad" class="form-label">Modalidad</label>
                         <select name="modalidad" id="modalidad" class="form-control">
-                            <option value="Presencial">Presencial</option>
-                            <option value="Virtual">Virtual</option>
+                            @foreach($modalidades as $modalidad)
+                            <option value="{{$modalidad->id}}">{{$modalidad->modalidad}}</option>
+                            @endforeach
                         </select>
                     </div>
 

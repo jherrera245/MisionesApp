@@ -16,9 +16,10 @@ class CapacitacionController extends Controller
             //consultamos la tabla
             $query = trim($request->get('searchText'));
             $capacitaciones = DB::table('capacitacion as cap')
+            ->join('modalidad_capacitacion as mod_cap', 'cap.id_modalidad_capacitacion', '=', 'mod_cap.id')
             ->select(
                 'cap.id','cap.nombre_capacitacion', 'cap.fecha_inicio', 'cap.fecha_finalizacion', 
-                'cap.modalidad', 'cap.cantidad_horas', 'cap.costo')
+                'mod_cap.modalidad', 'cap.cantidad_horas', 'cap.costo')
             ->where('cap.nombre_capacitacion','LIKE','%'.$query.'%')
             ->where('cap.status','=','1')
             ->orderBy('cap.id','desc')
@@ -53,7 +54,8 @@ class CapacitacionController extends Controller
     //Vista create
     public function create()
     {
-        return view('capacitaciones.capacitaciones.create');
+        $modalidades = DB::table('modalidad_capacitacion')->where('status','=','1')->get();
+        return view('capacitaciones.capacitaciones.create', ["modalidades"=>$modalidades]);
     }
 
     //alamacenamiento de los registros
@@ -63,7 +65,7 @@ class CapacitacionController extends Controller
         $capacitacion->nombre_capacitacion = $request->get('nombre');
         $capacitacion->fecha_inicio = $request->get('inicio');
         $capacitacion->fecha_finalizacion = $request->get('fin');
-        $capacitacion->modalidad = $request->get('modalidad');
+        $capacitacion->id_modalidad_capacitacion = $request->get('modalidad');
         $capacitacion->descripcion = $request->get('descripcion');
         $capacitacion->cantidad_horas = $request->get('horas');
         $capacitacion->costo = $request->get('costo');
@@ -76,7 +78,8 @@ class CapacitacionController extends Controller
     public function edit($id)
     {
         $capacitacion=Capacitacion::find($id);
-        return view('capacitaciones.capacitaciones.edit',["capacitacion"=>$capacitacion]);
+        $modalidades = DB::table('modalidad_capacitacion')->where('status','=','1')->get();
+        return view('capacitaciones.capacitaciones.edit',["capacitacion"=>$capacitacion, "modalidades"=>$modalidades]);
     }
 
     //actualizar registros
@@ -86,7 +89,7 @@ class CapacitacionController extends Controller
         $capacitacion->nombre_capacitacion = $request->get('nombre');
         $capacitacion->fecha_inicio = $request->get('inicio');
         $capacitacion->fecha_finalizacion = $request->get('fin');
-        $capacitacion->modalidad = $request->get('modalidad');
+        $capacitacion->id_modalidad_capacitacion = $request->get('modalidad');
         $capacitacion->descripcion = $request->get('descripcion');
         $capacitacion->cantidad_horas = $request->get('horas');
         $capacitacion->costo = $request->get('costo');

@@ -39,13 +39,13 @@
                        
                         
                         <select name="modalidad" id="modalidad" class="form-control">
-                            @if($capacitacion->modalidad == "Presencial")
-                            <option value="Presencial" selected>Presencial</option>
-                            <option value="Virtual">Virtual</option>
+                            @foreach($modalidades as $modalidad)
+                            @if($capacitacion->id_modalidad_capacitacion == $modalidad->id)
+                            <option value="{{$modalidad->id}}" selected>{{$modalidad->modalidad}}</option>
                             @else
-                            <option value="Presencial">Presencial</option>
-                            <option value="Virtual" selected>Virtual</option>
+                            <option value="{{$modalidad->id}}">{{$modalidad->modalidad}}</option>
                             @endif
+                            @endforeach
                         </select>
                     </div>
 

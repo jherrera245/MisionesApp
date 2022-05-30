@@ -83,7 +83,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Sección de Capacitaciones:</h6>
-                        <a class="collapse-item" href="">Capacitaciones</a>
+                        <a class="collapse-item" href="/capacitaciones">Capacitaciones</a>
                         <a class="collapse-item" href="">Estados de Capacitacion</a>
                         <a class="collapse-item" href="/financiamientos">Financiamientos</a>
                         <a class="collapse-item" href="">Horarios</a>

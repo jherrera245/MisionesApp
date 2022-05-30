@@ -1,4 +1,4 @@
-<form action="/empleados" method="get">
+<form action="/capacitaciones" method="get">
     <div class="form-group">
         <div class="input-group">
             <input type="text" class="form-control" name="searchText" placeholder="Buscar..." value="{{$searchText}}">

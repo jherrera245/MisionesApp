@@ -6,6 +6,7 @@ use App\Http\Controllers\NivelAcademicoController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\FinanciamientoController;
+use App\Http\Controllers\CapacitacionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,4 @@ Route::resource('/nivel_academico', NivelAcademicoController::class);
 Route::resource('/departamentos', DepartamentoController::class);
 Route::resource('/empleados', EmpleadoController::class);
 Route::resource('/financiamientos', FinanciamientoController::class);
+Route::resource('/capacitaciones', CapacitacionController::class);

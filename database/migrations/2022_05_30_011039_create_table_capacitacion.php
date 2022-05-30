@@ -20,7 +20,7 @@ class CreateTableCapacitacion extends Migration
             $table->date('fecha_finalizacion');
             $table->string('modalidad', 45);
             $table->string('descripcion', 250)->nullable();
-            $table->integer('cantidad_horas');
+            $table->float('cantidad_horas', 5,2);
             $table->float('costo', 10, 2);
             $table->boolean('status')->default(true);
             $table->timestamps();

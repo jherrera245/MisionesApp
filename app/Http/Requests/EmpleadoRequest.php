@@ -26,7 +26,7 @@ class EmpleadoRequest extends FormRequest
         return [
             'nombres'=>'required|string|max:75',
             'apellidos'=>'required|string|max:75',
-            'dui'=>'required|string|max:10|unique:empleado',
+            'dui'=>'required|string|max:10|unique:empleado,dui,'.$this->dui,
             'nivel'=>'required|integer',
             'departamento'=>'required|integer',
             'cargo'=>'required|integer',

@@ -17,6 +17,9 @@ class CreateTableFechasCapacitacion extends Migration
             $table->id();
             $table->foreignId('id_capacitacion');
             $table->foreign('id_capacitacion')->references('id')->on('capacitacion');
+            $table->date('fecha');
+            $table->time('hora_inicio');
+            $table->time('hora_fin');
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

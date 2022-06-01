@@ -25,14 +25,16 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
-                        <th>ID</th>
-                        <th>Nombre Completo</th>
-                        <th>Nivel Académico</th>
-                        <th>Departamento</th>
-                        <th>Cargo</th>
-                        <th>Teléfono</th>
-                        <th>Coordinador</th>
-                        <th colspan="2">Opciones</th>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre Completo</th>
+                            <th>Nivel Académico</th>
+                            <th>Departamento</th>
+                            <th>Cargo</th>
+                            <th>Teléfono</th>
+                            <th>Coordinador</th>
+                            <th colspan="2">Opciones</th>
+                        </tr>
                     </thead>
                     <tbody>
                         @foreach($empleados as $empleado)
@@ -64,7 +66,7 @@
                     </tbody>
                 </table>
             </div>
-            {{$empleados->render()}}
+            {{$empleados->render('vendor.pagination.bootstrap-4')}}
         </div>
     </div>
 </div>

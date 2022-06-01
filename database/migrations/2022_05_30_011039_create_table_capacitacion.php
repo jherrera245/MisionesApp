@@ -18,8 +18,8 @@ class CreateTableCapacitacion extends Migration
             $table->string('nombre_capacitacion', 55);
             $table->date('fecha_inicio');
             $table->date('fecha_finalizacion');
-            $table->foreignId('id_modalidad_capacitacion');
-            $table->foreign('id_modalidad_capacitacion')->references('id')->on('modalidad_capacitacion');
+            $table->foreignId('id_modalidad');
+            $table->foreign('id_modalidad')->references('id')->on('modalidad_capacitacion');
             $table->string('descripcion', 250)->nullable();
             $table->float('cantidad_horas', 5,2);
             $table->float('costo', 10, 2);

@@ -40,7 +40,7 @@
                         
                         <select name="modalidad" id="modalidad" class="form-control">
                             @foreach($modalidades as $modalidad)
-                            @if($capacitacion->id_modalidad_capacitacion == $modalidad->id)
+                            @if($capacitacion->id_modalidad == $modalidad->id)
                             <option value="{{$modalidad->id}}" selected>{{$modalidad->modalidad}}</option>
                             @else
                             <option value="{{$modalidad->id}}">{{$modalidad->modalidad}}</option>

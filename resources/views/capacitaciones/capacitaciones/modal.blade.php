@@ -1,6 +1,6 @@
 <form action="/capacitaciones/{{$capacitacion->id}}" method="post">
     @csrf
-    @method('DELETE')
+    @method('PUT')
     <!-- Modal -->
      <div class="modal fade" id="capacitacion-modal-{{$capacitacion->id}}" tabindex="-1" role="dialog" aria-labelledby="capacitacion-modal-{{$capacitacion->id}}"
         aria-hidden="true">

@@ -25,9 +25,11 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
-                        <th class="col-2">ID</th>
-                        <th class="col-8">Fuente de Financiamiento</th>
-                        <th class="col-2" colspan="2">Opciones</th>
+                        <tr>
+                            <th class="col-2">ID</th>
+                            <th class="col-8">Fuente de Financiamiento</th>
+                            <th class="col-2" colspan="2">Opciones</th>
+                        </tr>
                     </thead>
                     <tbody>
                         @foreach($financiamientos as $financiamiento)
@@ -46,7 +48,7 @@
                     </tbody>
                 </table>
             </div>
-            {{$financiamientos->render()}}
+            {{$financiamientos->render('vendor.pagination.bootstrap-4')}}
         </div>
     </div>
 </div>

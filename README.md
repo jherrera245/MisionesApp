@@ -7,10 +7,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Importante
-Luego descargar o clonar el repositorio proceda a descomprimir el archivo (vendor.zip) en carpeta
-raíz del proyecto.
-
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must

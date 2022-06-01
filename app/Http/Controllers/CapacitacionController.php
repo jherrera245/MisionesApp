@@ -16,7 +16,7 @@ class CapacitacionController extends Controller
             //consultamos la tabla
             $query = trim($request->get('searchText'));
             $capacitaciones = DB::table('capacitacion as cap')
-            ->join('modalidad_capacitacion as mod_cap', 'cap.id_modalidad_capacitacion', '=', 'mod_cap.id')
+            ->join('modalidad_capacitacion as mod_cap', 'cap.id_modalidad', '=', 'mod_cap.id')
             ->select(
                 'cap.id','cap.nombre_capacitacion', 'cap.fecha_inicio', 'cap.fecha_finalizacion', 
                 'mod_cap.modalidad', 'cap.cantidad_horas', 'cap.costo')
@@ -32,23 +32,64 @@ class CapacitacionController extends Controller
     //buscar registro para mostrar detalles del registro
     public function show($id)
     {
-        $capacitacion=Capacitacion::find($id);
+        $capacitacion = CapacitacionController::getCapacitacion($id);
+        $financiamiento_capacitacion = CapacitacionController::getFinanciamientosCapacitacion($id);
+        $horarios = CapacitacionController::getHorariosCapacitacion($id);
+        $financiamientos = CapacitacionController::listFinanciamientos();
 
+        $datos = [
+            "capacitacion"=>$capacitacion, 
+            "financiamiento_capacitacion"=>$financiamiento_capacitacion, 
+            "horarios"=>$horarios,
+            "financiamientos"=>$financiamientos
+        ];
+        return view('capacitaciones.capacitaciones.show', $datos);
+    }
+
+
+    //Obtenemos datos de la capacitacion para vista show
+    private function getCapacitacion($id){
+        $capacitacion = DB::table('capacitacion as cap')
+        ->join('modalidad_capacitacion as mod_cap', 'cap.id_modalidad', '=', 'mod_cap.id')
+        ->select('cap.id','cap.nombre_capacitacion', 'cap.fecha_inicio', 'cap.fecha_finalizacion', 'mod_cap.modalidad', 'cap.cantidad_horas', 'cap.costo', 'cap.descripcion')
+        ->where('cap.status','=','1')->where('cap.id','=',$id)->first();
+
+        return $capacitacion;
+    }
+
+    // obtenemos los datos de los financiamientos de la capacitacion
+    private function getFinanciamientosCapacitacion($id)
+    {
         $financiamientos = DB::table('financiamiento_capacitacion as f_cap')
         ->join('financiamiento as f', 'f_cap.id_financiamiento','=','f.id')
         ->join('capacitacion as cap', 'f_cap.id_capacitacion', '=', 'cap.id')
-        ->select('f.fuente_financiamiento')
+        ->select('f_cap.id','f.fuente_financiamiento')
         ->where('f_cap.id_capacitacion','=',$id)
+        ->where('f_cap.status','=','1')
         ->get();
 
+        return $financiamientos;
+    }
+
+    // lista de finanaicamientos para select
+    private function listFinanciamientos()
+    {
+        $financiamientos = DB::table('financiamiento')->where('status','=','1')->get();
+        return $financiamientos;
+    }
+
+    //obtenemos los horarios de la capacitacion
+    private function getHorariosCapacitacion($id)
+    {
         $horarios = DB::table('fechas_capacitacion as horario')
         ->join('capacitacion as cap', 'horario.id_capacitacion', '=', 'cap.id')
-        ->select('horario.fecha','horario.hora')
+        ->select('horario.id','horario.fecha','horario.hora_inicio', 'horario.hora_fin')
         ->where('horario.id_capacitacion','=',$id)
-        ->get();
+        ->where('horario.status','=','1')
+        ->orderBy('horario.fecha','asc')
+        ->paginate(7);
 
-        $datos = ["capacitacion"=>$capacitacion, "financiamientos"=>$financiamientos, "horarios"=>$horarios];
-        return view('capacitaciones.capacitaciones.show', $datos);
+        return $horarios;
     }
 
     //Vista create
@@ -65,7 +106,7 @@ class CapacitacionController extends Controller
         $capacitacion->nombre_capacitacion = $request->get('nombre');
         $capacitacion->fecha_inicio = $request->get('inicio');
         $capacitacion->fecha_finalizacion = $request->get('fin');
-        $capacitacion->id_modalidad_capacitacion = $request->get('modalidad');
+        $capacitacion->id_modalidad = $request->get('modalidad');
         $capacitacion->descripcion = $request->get('descripcion');
         $capacitacion->cantidad_horas = $request->get('horas');
         $capacitacion->costo = $request->get('costo');
@@ -89,7 +130,7 @@ class CapacitacionController extends Controller
         $capacitacion->nombre_capacitacion = $request->get('nombre');
         $capacitacion->fecha_inicio = $request->get('inicio');
         $capacitacion->fecha_finalizacion = $request->get('fin');
-        $capacitacion->id_modalidad_capacitacion = $request->get('modalidad');
+        $capacitacion->id_modalidad = $request->get('modalidad');
         $capacitacion->descripcion = $request->get('descripcion');
         $capacitacion->cantidad_horas = $request->get('horas');
         $capacitacion->costo = $request->get('costo');

@@ -86,7 +86,6 @@
                         <a class="collapse-item" href="/capacitaciones">Capacitaciones</a>
                         <a class="collapse-item" href="">Estados de Capacitacion</a>
                         <a class="collapse-item" href="/financiamientos">Financiamientos</a>
-                        <a class="collapse-item" href="">Horarios</a>
                         <a class="collapse-item" href="">Inscripciones</a>
                     </div>
                 </div>

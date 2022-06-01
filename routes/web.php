@@ -7,6 +7,8 @@ use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\FinanciamientoController;
 use App\Http\Controllers\CapacitacionController;
+use App\Http\Controllers\FinanciamientoCapacitacionController;
+use App\Http\Controllers\FechasCapacitacionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +35,5 @@ Route::resource('/departamentos', DepartamentoController::class);
 Route::resource('/empleados', EmpleadoController::class);
 Route::resource('/financiamientos', FinanciamientoController::class);
 Route::resource('/capacitaciones', CapacitacionController::class);
+Route::resource('/financiamiento_capacitacion', FinanciamientoCapacitacionController::class);
+Route::resource('/horario_capacitacion', FechasCapacitacionController::class);

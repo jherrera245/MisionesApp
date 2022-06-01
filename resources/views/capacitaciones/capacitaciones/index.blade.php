@@ -24,14 +24,16 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Fecha de Inicio</th>
-                        <th>Fecha de Finalización</th>
-                        <th>Modalidad</th>
-                        <th>Duración</th>
-                        <th>Costo</th>
-                        <th colspan="2">Opciones</th>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Fecha de Inicio</th>
+                            <th>Fecha de Finalización</th>
+                            <th>Modalidad</th>
+                            <th>Duración</th>
+                            <th>Costo</th>
+                            <th colspan="3">Opciones</th>
+                        </tr>
                     </thead>
                     <tbody>
                         @foreach($capacitaciones as $capacitacion)
@@ -47,6 +49,9 @@
                                 <a href="/capacitaciones/{{$capacitacion->id}}/edit" class="btn btn-primary">Editar</a>
                             </td>
                             <td>
+                                <a href="/capacitaciones/{{$capacitacion->id}}" class="btn btn-success">Ver</a>
+                            </td>
+                            <td>
                                 <button class="btn btn-danger" data-toggle="modal" data-target="#capacitacion-modal-{{$capacitacion->id}}">Borrar</button>
                             </td>
                         </tr>
@@ -55,7 +60,7 @@
                     </tbody>
                 </table>
             </div>
-            {{$capacitaciones->render()}}
+            {{$capacitaciones->render('vendor.pagination.bootstrap-4')}}
         </div>
     </div>
 </div>

@@ -9,6 +9,8 @@ use App\Http\Controllers\FinanciamientoController;
 use App\Http\Controllers\CapacitacionController;
 use App\Http\Controllers\FinanciamientoCapacitacionController;
 use App\Http\Controllers\FechasCapacitacionController;
+use App\Http\Controllers\EstadoCapacitacionController;
+use App\Http\Controllers\CapacitacionEmpleadoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +39,5 @@ Route::resource('/financiamientos', FinanciamientoController::class);
 Route::resource('/capacitaciones', CapacitacionController::class);
 Route::resource('/financiamiento_capacitacion', FinanciamientoCapacitacionController::class);
 Route::resource('/horario_capacitacion', FechasCapacitacionController::class);
+Route::resource('/estados',EstadoCapacitacionController::class);
+Route::resource('/inscripciones', CapacitacionEmpleadoController::class);

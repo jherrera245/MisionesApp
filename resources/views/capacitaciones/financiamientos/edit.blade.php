@@ -11,7 +11,7 @@
     </a>
 
     <!-- Card Content - Collapse -->
-    <div class="collapse show" id="collapseCardCargo">
+    <div class="collapse show" id="collapseCardFinanciamiento">
         <div class="card-body">
             <h5>Modificar Financiamiento: {{$financiamiento->nombre}}</h5>
 
@@ -20,7 +20,7 @@
                 @method('PUT')
                 <div class="row">
                     <div class="col-lg-6 col-xs-12 mb-3">
-                        <label for="fuente" class="form-label">Nombre de Fuente de Financiamiento</label>
+                        <label for="fuente" class="form-label">Fuente de Financiamiento</label>
                         <input type="text" class="form-control" name="fuente" id="fuente" value="{{$financiamiento->fuente_financiamiento}}" maxlength="50" required>
                     </div>
                 </div>

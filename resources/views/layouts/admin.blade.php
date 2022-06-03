@@ -84,9 +84,9 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Sección de Capacitaciones:</h6>
                         <a class="collapse-item" href="/capacitaciones">Capacitaciones</a>
-                        <a class="collapse-item" href="">Estados de Capacitacion</a>
+                        <a class="collapse-item" href="/estados">Estados de Capacitacion</a>
                         <a class="collapse-item" href="/financiamientos">Financiamientos</a>
-                        <a class="collapse-item" href="">Inscripciones</a>
+                        <a class="collapse-item" href="/inscripciones">Inscripciones</a>
                     </div>
                 </div>
             </li>

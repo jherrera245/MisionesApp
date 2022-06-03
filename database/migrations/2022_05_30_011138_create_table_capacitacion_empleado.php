@@ -15,7 +15,7 @@ class CreateTableCapacitacionEmpleado extends Migration
     {
         Schema::create('capacitacion_empleado', function (Blueprint $table) {
             $table->id();
-            $table->string('comprobante_incripcion', 255)->nullable();
+            $table->string('comprobante_inscripcion', 255)->nullable();
             $table->string('comprobante_finalizacion', 255)->nullable();
             $table->foreignId('id_empleado');
             $table->foreign('id_empleado')->references('id')->on('empleado');

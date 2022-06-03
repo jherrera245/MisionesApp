@@ -30,6 +30,13 @@ return [
 
     'disks' => [
 
+        'anexos'=>[
+            'driver' => 'local',
+            'root' => storage_path('anexos'),
+            'url' => env('APP_URL').'/documentos',
+            'visibility'=> 'public',
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
@@ -68,6 +75,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('documentos')=> storage_path('anexos'),
     ],
 
 ];

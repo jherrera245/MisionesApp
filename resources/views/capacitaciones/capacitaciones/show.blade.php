@@ -34,6 +34,12 @@
                     </tbody>
                 </table>
             </div>
+            <div class="card mb-4 py-3 border-left-primary">
+                <div class="card-body">
+                    <h5>Descripción</h5>
+                    <p>{{$capacitacion->descripcion}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DepartamentoRequest extends FormRequest
+class EstadoCapacitacionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class DepartamentoRequest extends FormRequest
     {
         return [
             // validacion de campos del formulario departamento
-            'nombre'=>'required|string|max:50',
+            'estado'=>'required|string|max:50',
         ];
     }
 }

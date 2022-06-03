@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DepartamentoRequest extends FormRequest
+class CapacitacionEmpleadoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,11 @@ class DepartamentoRequest extends FormRequest
     public function rules()
     {
         return [
-            // validacion de campos del formulario departamento
-            'nombre'=>'required|string|max:50',
+            'inscripcion'=>'nullable|file',
+            'finalizacion'=>'nullable|file',
+            'empleado'=>'required|integer',
+            'capacitacion'=>'required|integer',
+            'estado'=>'required|integer'
         ];
     }
 }

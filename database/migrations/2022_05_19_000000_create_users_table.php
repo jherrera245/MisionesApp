@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Hash;
 
 class CreateUsersTable extends Migration
 {
@@ -21,11 +22,20 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->foreignId('id_empleado');
             $table->foreign('id_empleado')->references('id')->on('empleado');
-            $table->foreignId('id_rol');
-            $table->foreign('id_rol')->references('id')->on('rol_usuario');
+            $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert([
+            "name" =>"Josue Herrera",
+            "email"=>"admin@admin.com",
+            "password"=>Hash::make("245jh17@"),
+            "id_empleado"=>1,
+            "is_admin"=>true,
+            "created_at"=>now(), 
+            "updated_at"=>now()
+        ]);
     }
 
     /**

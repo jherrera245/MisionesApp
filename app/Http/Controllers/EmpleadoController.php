@@ -9,6 +9,10 @@ use DB;
 
 class EmpleadoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
 
     //cargar datos de bd en la vista
     public function index(Request $request)

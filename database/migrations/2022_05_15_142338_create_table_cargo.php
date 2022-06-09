@@ -19,6 +19,8 @@ class CreateTableCargo extends Migration
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
+
+        DB::table('cargo')->insert(["nombre"=>"Administrador de Sistema", "created_at"=>now(), "updated_at"=>now()]);
     }
 
     /**

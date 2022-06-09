@@ -11,6 +11,7 @@ use App\Http\Controllers\FinanciamientoCapacitacionController;
 use App\Http\Controllers\FechasCapacitacionController;
 use App\Http\Controllers\EstadoCapacitacionController;
 use App\Http\Controllers\CapacitacionEmpleadoController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +25,15 @@ use App\Http\Controllers\CapacitacionEmpleadoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/home', function () {
     return view('home.index');
+});
+
+Route::get('/reportes/pdf', function () {
+    
 });
 
 Route::resource('/cargos', CargoController::class);
@@ -41,3 +46,7 @@ Route::resource('/financiamiento_capacitacion', FinanciamientoCapacitacionContro
 Route::resource('/horario_capacitacion', FechasCapacitacionController::class);
 Route::resource('/estados',EstadoCapacitacionController::class);
 Route::resource('/inscripciones', CapacitacionEmpleadoController::class);
+Route::resource('/usuarios', UsuarioController::class);
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

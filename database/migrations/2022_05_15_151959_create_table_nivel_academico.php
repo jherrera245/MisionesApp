@@ -19,6 +19,8 @@ class CreateTableNivelAcademico extends Migration
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
+
+        DB::table('nivel_academico')->insert(["nombre"=>"Ing. Desarrollo de Software", "created_at"=>now(), "updated_at"=>now()]);
     }
 
     /**

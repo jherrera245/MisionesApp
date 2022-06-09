@@ -29,6 +29,17 @@ class CreateTableEmpleado extends Migration
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
+
+        DB::table('empleado')->insert(
+            [
+                "nombres"=>"Josue Isai", 
+                "apellidos"=>"Herrera Benitez", 
+                "dui"=>"939933-6", 
+                "id_nivel_academico"=>1,
+                "id_departamento"=>1,
+                "id_cargo"=>1,
+                "telefono"=>"7728-8054"
+            ]);
     }
 
     /**

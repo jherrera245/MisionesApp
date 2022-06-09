@@ -19,6 +19,8 @@ class CreateTableDepartamento extends Migration
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
+
+        DB::table('departamento')->insert(["nombre"=>"Desarrollo", "created_at"=>now(), "updated_at"=>now()]);
     }
 
     /**

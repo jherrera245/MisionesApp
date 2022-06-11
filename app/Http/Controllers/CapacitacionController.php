@@ -9,6 +9,10 @@ use DB;
 
 class CapacitacionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //cargar datos en la vista index
     public function index(Request $request)
     {

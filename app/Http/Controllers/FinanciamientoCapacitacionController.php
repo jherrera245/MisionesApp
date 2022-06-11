@@ -9,6 +9,11 @@ use DB;
 
 class FinanciamientoCapacitacionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     // registrar financiamiento capacitacion
     public function store(FinanciamientoCapacitacionRequest $request){
         $financiamiento = new FinanciamientoCapacitacion();

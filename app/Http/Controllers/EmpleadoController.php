@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Empleado;
 use App\Http\Requests\EmpleadoRequest;
+use App\Http\Requests\EmpleadoUpdateRequest;
 use DB;
 
 class EmpleadoController extends Controller
@@ -78,7 +79,7 @@ class EmpleadoController extends Controller
     }
 
     //actualizar registros
-    public function update(EmpleadoRequest $request, $id)
+    public function update(EmpleadoUpdateRequest $request, $id)
     {
         $empleado = Empleado::find($id);
         $empleado->nombres=$request->get('nombres');

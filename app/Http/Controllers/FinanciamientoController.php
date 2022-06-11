@@ -9,6 +9,11 @@ use DB;
 
 class FinanciamientoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
      // carga los datos de la base de datos en una tabla
      public function index(Request $request)
      {

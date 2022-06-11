@@ -18,6 +18,7 @@
     <link href="{{asset('plugins/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{asset('plugins/css/select2.min.css')}}" rel="stylesheet">
     <link href="{{asset('plugins/css/select2-bootstrap4.min.css')}}" rel="stylesheet">
+    <script src="{{asset('plugins/js/chart.min.js')}}"></script>
 </head>
 
 <body id="page-top">
@@ -29,7 +30,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -117,7 +118,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="/reportes">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Reportes</span>
                 </a>
@@ -201,7 +202,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="/profile/{{Auth::user()->id}}/edit">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -293,7 +294,12 @@
             });
         });
     </script>
-
+    @if (isset($incluir_graficas))
+        @if ($incluir_graficas == true)
+        <script src="{{asset('plugins/js/graficas-departamento.js')}}"></script>
+        <script src="{{asset('plugins/js/graficas-capacitacion.js')}}"></script>
+        @endif
+    @endif
     <script src="{{asset('plugins/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->

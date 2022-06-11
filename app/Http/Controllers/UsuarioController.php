@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Http\Requests\UsuarioRequest;
+use App\Http\Requests\UsuarioUpdateRequest;
+use App\Http\Requests\ProfileUserRequest;
+use App\Http\Requests\PasswordUpdateRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use DB;
 
 class UsuarioController extends Controller
@@ -62,8 +66,37 @@ class UsuarioController extends Controller
         return view('usuarios.usuarios.edit', ["usuario"=>$usuario, "empleados"=>$empleados]);
     }
 
+    //leer usuario
+    public function profile($id)
+    {
+        $usuario = User::find(Auth::user()->id);
+        $empleados = DB::table('empleado')
+        ->where('status','=','1')
+        ->where('id','=',Auth::user()->id_empleado)->first();
+        return view('usuarios.usuarios.profile', ["usuario"=>$usuario, "empleados"=>$empleados]);
+    }
+
     //actualizar registros
-    public function update(UsuarioRequest $request, $id)
+    public function profileUserUpdate(ProfileUserRequest $request, $id)
+    {
+        $usuario = User::find($id);
+        $usuario->name=$request->get('name');
+        $usuario->email=$request->get('email');
+        $usuario->update();
+        return redirect('/home');
+    }
+
+    //actualizar contraseña
+    public function profilePasswordUpdate(PasswordUpdateRequest $request, $id)
+    {
+        $usuario = User::find($id);
+        $usuario->password=Hash::make($request->get('password'));
+        $usuario->update();
+        return redirect('/home');
+    }
+    
+    //actualizar registros
+    public function update(UsuarioUpdateRequest $request, $id)
     {
         $usuario = User::find($id);
         $usuario->name=$request->get('name');

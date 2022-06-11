@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmpleadoRequest extends FormRequest
+class EmpleadoUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,7 @@ class EmpleadoRequest extends FormRequest
         return [
             'nombres'=>'required|string|max:75',
             'apellidos'=>'required|string|max:75',
-            'dui'=>'required|string|max:10|unique:empleado',
+            'dui'=>'required|string|max:10',
             'nivel'=>'required|integer',
             'departamento'=>'required|integer',
             'cargo'=>'required|integer',

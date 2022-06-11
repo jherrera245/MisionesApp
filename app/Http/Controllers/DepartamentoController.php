@@ -9,6 +9,11 @@ use DB;
 
 class DepartamentoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index(Request $request)
     {
         if ($request) {

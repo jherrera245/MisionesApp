@@ -49,7 +49,7 @@
 
 
                     <div class="col-lg-6 col-xs-12 mb-3">
-                    <label for="coordinador" class="form-label">Seleccionar si es coordinador</label>
+                    <label for="coordinador" class="form-label">Seleccionar rol</label>
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" name="admin" value="1" id="admin">
                             <label class="custom-control-label" for="admin">Administrator</label>

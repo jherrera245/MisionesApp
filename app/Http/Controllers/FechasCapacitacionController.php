@@ -9,6 +9,11 @@ use DB;
 
 class FechasCapacitacionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     //registro de datos
     public function store(FechasCapacitacionRequest $request)
     {

@@ -25,7 +25,7 @@ DB_USERNAME=root
 DB_PASSWORD=  
 
 - Crear en su servidor de mysql la base de datos con el mismo nombre que especifico anteriormente.
-- Abrir la carpeta del proyecto en la terminal y ejecutar el comando **composer install**.
+- Abrir la carpeta del proyecto en la terminal de comandos (cmd) y ejecutar el comando **composer install**.
 - Proceda con la migracion de la base de datos usando el comando **php artisan migrate:install**.
 - Luego ejecute el comando php artisan migrate:refresh
 - Finalmente genere una clave para su aplicación con el comando **php artisan key:generate**
